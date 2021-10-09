@@ -1,0 +1,25 @@
+<h2>Sign Up</h2>
+
+<% if @user.errors.any? %>
+  <p>Could not save due to:</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @user do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <br>
+
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %>
+  <br>
+
+  <%= form.submit "Create Account" %>
+<% end %> 
